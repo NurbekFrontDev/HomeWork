@@ -1,52 +1,56 @@
-const greet = 'Hello, World!'; //STRING
-const myFavouriteNumber = 333; //NUMBER
-const areMentorsGreat = true; //BOOLEAN
-let x;  //UNDEFIEND
-const none = null; //NULL
+//Вариант превый:
+const a = 2;
 
-console.log(typeof greet);
-console.log(typeof myFavouriteNumber);
-console.log(typeof isMentorsGreat);
-console.log(typeof x);
-console.log(typeof none);
+console.log(a * a + a);
 
-/*
-Объяснение разницы между хранением данных по ссылке и по значению своими словами:
+//Вариант второй:
+console.log(2 * 2 + 2);
 
-Если говорить очень простым языком, то когда мы присваиваем одной переменной другую, то создается просто копия "ЗНАЧЕНИЕ" первой переменной, то есть они никак не связаны между собой. Пример:
-*/
-let a = 10;
-let b = a; // Создается КОПИЯ значения переменной "а", то есть 10
+//Вариант третьий:
+const result = 2 * 2 + 2;
 
-b = 20; // Изменяем "b", но a остается 10, потому что, мы просто меням значение "b" на 20, а не значения "а"
-console.log(a); // 10
-console.log(b); // 20
+console.log(result);
 
-/*
-Теперь, когда мы передаем, то есть, присваиваем объект(object), вмсето значение другого переменного, то они "Связываються" между собой, то есть, они связаны к одной ссылке, которое создает компьютер.
-Пример:
-*/
-let object1 = {
-    name: "Alex"
-};
-let object2 = object1; // Здесь, object2 получает ссылку на тот же объект, а не просто копируется, то есть он привязен к одной ссылке вместе с object1
 
-object2.name = "Bob"; // И теперь, можно менять что угодно с помощью object2, object1 также будет меняться, так как они привязыно к одной ссылке
+const sin54 = Math.sin(54);
+const cos16 = Math.cos(16);
+const result2 = sin54 * cos16;
+const finalResult = result2 ** 2;
 
-console.log(object1.name); // "Bob"
-console.log(object2.name); // "Bob"
+console.log(Math.round(finalResult));
 
-/*
-Но, обекты, котороые между собой связаны, можно сдеалать так, чтобы просто "скопировать", чтобы создать независомый объект, для того, чтобы не менять другую переменную, он будет работать как обычной Примитив, которое не меняется.
-Для этого, есть способ с "..." (spread):
-*/
+const a1 = 13.2 * 71.90;
+const a2 = Math.sqrt(a1);
+const b = 7 ** 4;
+const c = 2.4 / b;
+const d = (16 * a2) / c;
 
-let obj1 = { 
-    name: "Alex" 
-};
-let obj2 = { ...obj1 }; // Создается независимая копия объекта
+const leftSide = d + 3 ** Math.sqrt(49);
+const finalResult2 = leftSide * 2 ** 7;
 
-obj2.name = "Bob"; 
+console.log(Math.round(finalResult2));
 
-console.log(obj1.name); // "Alice" (остался без изменений)
-console.log(obj2.name); // "Bob"
+
+const number1 = 25;
+const number2 = 100;
+const number3 = 939;
+
+function checkEvenOdd(num) {
+    if (num % 2 === 0) {
+        console.log(`${num} четное`)
+    } else {
+        console.log(`${num} нечетное`)
+    }
+}
+
+checkEvenOdd(number1);
+checkEvenOdd(number2);
+checkEvenOdd(number3);
+
+const isName = prompt('Как вас зовут?');
+
+if (isName) {
+    console.log(`Hello, ${isName}`);
+} else {
+    console.log('Hello, Guest!')
+}

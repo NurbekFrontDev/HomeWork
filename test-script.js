@@ -1,67 +1,85 @@
-// 1. Создай функцию, которая принимает произвольное количество чисел и возвращает их среднее значение;
-function sumAll(...numbers) {
-  return Math.round(
-    numbers.reduce((total, num) => total + num, 0) / numbers.length
-  );
+// 1. Напиши функцию, которая принимает строку и проверяет, является ли она палиндромом. Если да - функция возвращает true, если нет - false;
+
+function isPalindrome(str) {
+  const lowerStr = str.toLowerCase();
+  const reversedStr = lowerStr.split('').reverse().join('');
+  return lowerStr === reversedStr;
 }
 
-console.log(sumAll(1, 2, 3, 4, 5, 6, 6, 7, 8, 4));
+const userAnswer = prompt('Введите палиндром, чтобы узнать, является ли он реально палиндромом😄');
+console.log(isPalindrome(userAnswer));
 
-// 2. Создай функцию, которая принимает объект с информацией о пользователе (имя, возраст, страна) и возвращает строку с этой информацией, используя деструктуризацию;
-function userInfo({ name, age, country }) {
-  return `Name: ${name}, Age: ${age}, Country: ${country}`;
-}
+// 2. Напиши функцию, которая принимает строку (предложение) и находит первое самое короткое слово в ней и возвращает его;
 
-const user = {
-  name: "Alice",
-  age: 33,
-  country: "USA",
-};
+// function findShortestWord(sentence) {
+//   const words = sentence.split(' ');
+//   let shortestWord = words[0];
+//   for (let i = 1; i < words.length; i++) {
+//     if (words[i].length < shortestWord.length) {
+//       shortestWord = words[i];
+//     }
+//   }
+//   return shortestWord;
+// }
 
-console.log(userInfo(user));
+// const userSentence = prompt('Просто введите предложение, чтобы найти что-то короткое...)');
+// console.log(findShortestWord(userSentence));
 
-// 3. Создай объект с вложенными объектами и массивами. Используй деструктуризацию, чтобы извлечь несколько значений на разных уровнях вложенности;
-const person = {
-  name: "Mike",
-  surName: "Boreyko",
-  address: {
-    city: "New York",
-    zip: 3003,
-  },
-  hobbies: ["Swimming", ["Hiking", "Skiing"], "eating😁"],
-};
+// 3. Напиши функцию, которая форматирует строку с цифрами в телефонный номер. Пример: createPhoneNumber(123456789) → 8 (123) 456-789;
 
-const {
-  name,
-  address: { city },
-  hobbies: [first, [, third], fourth],
-} = person;
+// function formatPhoneNumber(number) {
+//   const areaCode = number.slice(0, 3);
+//   const firstPart = number.slice(3, 6);
+//   const secondPart = number.slice(6, 9);
+//   const correctNumber = `+7 (${areaCode }) ${firstPart }-${secondPart}`;
+//   return correctNumber;
+// }
 
-console.log(name);
-console.log(city);
-console.log(first);
-console.log(third);
-console.log(fourth);
+// const userPhone = prompt('Введите свой номер:');
+// console.log(formatPhoneNumber(userPhone));
 
-// 4. Используй оператор `spread` для создания нового массива, который включает все элементы исходного массива и добавляет несколько новых элементов в начале и в конце;
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [6, 7, 8, 9, 10];
-const newArray = ["Начало", "Здесь", ...arr1, ...arr2, "Это", "Конец"]; // Здесь я сразу применил и объединение:)
+// 4. Напиши функцию, которая ищет минимальное и максимальное значение в массиве;
 
-console.log(newArray);
+// function findMinMax(array) {
+//   const min  = Math.min(...array);
+//   const max = Math.max(...array);
+//   return `Min Value: ${min}\nMax Value: ${max}`;
+// }
 
-// 5. Используй оператор `rest` для создания функции, которая принимает объект с параметрами и возвращает новый объект без одного указанного параметра.
-const unrialFruit = {
-  isReal: false,
-  name: 'Zorberium',
-  weight: 333,
-  color: 'neon blue',
-  fromWhere: 'Galaxy Z-9',
-  taste: 'меняет вкус каждые 10 секунд'
-}
+// const numbers = [43, 4398, 43920, 76943, 3974];
+// console.log(findMinMax(numbers));
 
-function removeProperty({ isReal, ...other }) {
-  return other
-}
+// 5. *Напиши функцию, которая на вход принимает массив, а на выходе возвращает новый, отсортированный в порядке возрастания, массив.
+// Попробуй реализовать алгоритм сортировки самостоятельно. Если не получается - почитай про bubble sort и попробуй реализовать её.
 
-console.log(removeProperty(unrialFruit));
+//Вариант 1:
+// function bubbleSort(array) {
+//   const sortedArray = array.sort();
+//   return sortedArray;
+// }
+
+// const numbers = [7, 3, 9, 4, 2, 5, 1, 6, 8];
+// console.log(bubbleSort(numbers));
+
+//Вариант 2:
+
+// function bubbleSort2(arr) {
+//   const newArr = arr.slice();
+//   for (let j = newArr.length - 1; j > 0; j--) {
+//     let swapped = false;
+//     for (let i = 0; i < j; i++) {
+//       if (newArr[i] > newArr[i + 1]) {
+//         let temp = newArr[i];
+//         newArr[i] = newArr[i + 1];
+//         newArr[i + 1] = temp;
+//         swapped = true;
+//       }
+//     }
+//     if (!swapped) break;
+//   }
+//   return newArr;
+// }
+
+// const arrNums = [9, 1, 10, 6, 8, 2, 7, 4, 3];
+// console.log(bubbleSort2(arrNums));
+

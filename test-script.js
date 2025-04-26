@@ -1,48 +1,49 @@
-// 1. Найдите с помощью break points ошибку в коде этой функции и исправьте ее:
-function hasEvenNumber(arr) {
-  let foundEven = false;
+// 1. Создай объект, ключи в котором будут описывать тебя. Например, твое имя, возраст, увлечения и т.д. 
+// Обязательно используй разные типы данных: имя - строка, возраст - число, хобби - массив и  т.д. 
+// Затем выведи все свои свойства/свойства объекта в консоль(разными способами!);
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 === 0) {
-      foundEven = true;
+const myInfo = {
+  name: 'Nurbek',
+  age: 17,
+  hobbies: [
+    'reading', 
+    ' jogging', 
+    ' coding'
+  ],
+  isStudent: true,
+};
 
-      return foundEven;
-    } else if (arr[i] % 2 !== 0) {
-      foundEven = false;
-    }
-  }
+for (let key in myInfo) {
+  console.log(`${key}: ${myInfo[key]}`);
 }
 
-console.log(hasEvenNumber([1, 3, 4, 5])); // Ожидается: true
+console.log(myInfo);
+console.log(myInfo.name);
+console.log(myInfo['age']);
+console.log(myInfo.hobbies[2]);
+console.log(myInfo.isStudent);
+console.log(Object.keys(myInfo));
+console.log(Object.values(myInfo));
+console.log(Object.entries(myInfo));
 
-// 2. Найдите с помощью debugger ошибку в коде этой функции и исправьте ее:
-function calculateAverage(numbers) {
-  // debugger;
-  let sum = 0;
 
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
+// 2. В объект из предыдущего пункта:
 
-  return sum / numbers.length;
-}
+// - добавь новое свойство;
 
-console.log(calculateAverage([2, 4, 6])); // Ожидается: 4
+// - измени значение существующего свойства;
+// - удали любое свойство.
+// И снова выведи все свойства объекта в консоль разными способами!
 
-// 3. Найдите с помощью console.log ошибку в коде этой функции и исправьте ее:
+myInfo.country = 'Uzbekistan';
+myInfo.age = 18;
+delete myInfo.hobbies[1];
 
-function findLargestNumber(arr) {
-  let largest = arr[0];
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > largest) {
-      largest = arr[i];
-    } else {
-      
-    }
-  }
-
-  return largest;
-}
-
-console.log(findLargestNumber([-10, -20, -30])); // Ожидается: -10
+console.log(myInfo);
+console.log(myInfo.name);
+console.log(myInfo['age']);
+console.log(myInfo.hobbies[0]);
+console.log(myInfo.isStudent);
+console.log(Object.keys(myInfo));
+console.log(Object.values(myInfo));
+console.log(Object.entries(myInfo));

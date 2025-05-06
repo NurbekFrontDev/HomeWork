@@ -1,49 +1,39 @@
-// 1. Создай объект, ключи в котором будут описывать тебя. Например, твое имя, возраст, увлечения и т.д. 
-// Обязательно используй разные типы данных: имя - строка, возраст - число, хобби - массив и  т.д. 
-// Затем выведи все свои свойства/свойства объекта в консоль(разными способами!);
+// 1. Найди элемент на странице по его ID и измени его текстовое содержимое на что-то новое;
+const changeText = document.getElementById('header');
+changeText.textContent = 'Новый текст!';
 
-const myInfo = {
-  name: 'Nurbek',
-  age: 17,
-  hobbies: [
-    'reading', 
-    ' jogging', 
-    ' coding'
-  ],
-  isStudent: true,
-};
+// 2. Используй JavaScript, чтобы изменить фон и цвет текста элемента с определенным классом;
+const blueColorOfText = document.querySelector('.blue');
+const redColorOfText = document.querySelector('.red');
+const yellowColorOfText = document.querySelector('.yellow');
+blueColorOfText.style.color = 'blue';
+redColorOfText.style.color = 'red';
+yellowColorOfText.style.color = 'yellow';
 
-for (let key in myInfo) {
-  console.log(`${key}: ${myInfo[key]}`);
+// 3. Напиши код, который создает новый параграф с текстом и добавляет его в конец документа;
+const newParagraph = document.createElement('p');
+newParagraph.textContent = 'Это новый параграф!';
+document.body.appendChild(newParagraph);
+
+// 4. Напиши функцию, которая удаляет элемент с указанным ID из документа;
+function removeElement(element) {
+	element.parentNode.removeChild(element);
 }
 
-console.log(myInfo);
-console.log(myInfo.name);
-console.log(myInfo['age']);
-console.log(myInfo.hobbies[2]);
-console.log(myInfo.isStudent);
-console.log(Object.keys(myInfo));
-console.log(Object.values(myInfo));
-console.log(Object.entries(myInfo));
+removeElement(removeMe);
 
+// 5. Измени атрибут ссылки на новый URL и выведи его значение в консоль;
+const changeAttribute = document.getElementById('changeURL');
+changeAttribute.setAttribute('href', 'https://yandex.ru')
+console.log(changeAttribute.getAttribute('href'));
 
-// 2. В объект из предыдущего пункта:
+// 6. Создай новый элемент, добавь к нему класс и добавь его в DOM;
+const newElement = document.createElement('h4');
+newElement.textContent= 'Это новый элемент, с новым классом!';
+newElement.classList.add('new-class');
+document.body.appendChild(newElement);
 
-// - добавь новое свойство;
+// 7. Переключи класс у существующего элемента и проверьте его наличие в консоли.
+newElement.classList.toggle('changedClass');
 
-// - измени значение существующего свойства;
-// - удали любое свойство.
-// И снова выведи все свойства объекта в консоль разными способами!
-
-myInfo.country = 'Uzbekistan';
-myInfo.age = 18;
-delete myInfo.hobbies[1];
-
-console.log(myInfo);
-console.log(myInfo.name);
-console.log(myInfo['age']);
-console.log(myInfo.hobbies[0]);
-console.log(myInfo.isStudent);
-console.log(Object.keys(myInfo));
-console.log(Object.values(myInfo));
-console.log(Object.entries(myInfo));
+console.log(newElement.classList.contains('changedClass'));

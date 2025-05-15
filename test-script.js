@@ -1,39 +1,49 @@
-// 1. Найди элемент на странице по его ID и измени его текстовое содержимое на что-то новое;
-const changeText = document.getElementById('header');
-changeText.textContent = 'Новый текст!';
-
-// 2. Используй JavaScript, чтобы изменить фон и цвет текста элемента с определенным классом;
-const blueColorOfText = document.querySelector('.blue');
-const redColorOfText = document.querySelector('.red');
-const yellowColorOfText = document.querySelector('.yellow');
-blueColorOfText.style.color = 'blue';
-redColorOfText.style.color = 'red';
-yellowColorOfText.style.color = 'yellow';
-
-// 3. Напиши код, который создает новый параграф с текстом и добавляет его в конец документа;
-const newParagraph = document.createElement('p');
-newParagraph.textContent = 'Это новый параграф!';
-document.body.appendChild(newParagraph);
-
-// 4. Напиши функцию, которая удаляет элемент с указанным ID из документа;
-function removeElement(element) {
-	element.parentNode.removeChild(element);
+// 1. Назначь для кнопки обработчик события click, который будет изменять текст этой кнопки при нажатии;
+function getColor() {
+  const colors = [
+    "#49A16C",
+    "#064236",
+    "#ED6742",
+    "#F498AD",
+    "#1A5AD7",
+    "#AFC9DA",
+    "#FFD829",
+    "#282A2E",
+    "#5E6064",
+    "#E6E6E6",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
-removeElement(removeMe);
+const changeColor = document.getElementById("changeColor");
+changeColor.addEventListener("click", () => {
+    changeColor.style.backgroundColor = getColor();
+});
 
-// 5. Измени атрибут ссылки на новый URL и выведи его значение в консоль;
-const changeAttribute = document.getElementById('changeURL');
-changeAttribute.setAttribute('href', 'https://yandex.ru')
-console.log(changeAttribute.getAttribute('href'));
 
-// 6. Создай новый элемент, добавь к нему класс и добавь его в DOM;
-const newElement = document.createElement('h4');
-newElement.textContent= 'Это новый элемент, с новым классом!';
-newElement.classList.add('new-class');
-document.body.appendChild(newElement);
+// 2. Назначь для любого элемента обработчик события mouseover, который будет изменять размер элемента при наведении;
+changeColor.addEventListener('mouseover', () => {
+    changeColor.style.width = '200px';
+    changeColor.style.height = '100px';
+})
 
-// 7. Переключи класс у существующего элемента и проверьте его наличие в консоли.
-newElement.classList.toggle('changedClass');
 
-console.log(newElement.classList.contains('changedClass'));
+// 3. Назначь для инпута обработчик события keyup, который будет выводить отпущенную клавишу в консоль;
+const input = document.getElementById('input');
+input.addEventListener('keyup', (event) => {
+    console.log(event.key);
+});
+
+
+// 4. Создай форму и добавь обработчик события submit, который будет показывать сообщение об успешной отправке;
+const form = document.getElementById('form');
+form.addEventListener('submit', () => {
+    alert('Сообщение успешно отправлено!');
+});
+
+
+// 5. Пусть на странице есть кнопка с надписью 'Изменить тему', которая позволяет переключать тему страницы. Например, по умолчанию тема светлая: задний фон - белый, текст - черный. Нажимаем на кнопку -> тема меняется на темную: цвет фона - черный, текст - белый. Еще раз нажимаем на кнопку -> тема снова светлая и т. д.
+const changeTheme = document.getElementById('changeTheme');
+changeTheme.addEventListener('click', () => {
+  document.body.classList.toggle('changeTheme');
+});

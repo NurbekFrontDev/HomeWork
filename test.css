@@ -1,0 +1,110 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000000;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+  font-family: "JetBrains Mono";
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  color: #f7df1e;
+  text-shadow: 0 0 10px #f7df1e;
+  margin: 0;
+}
+
+.progress-info {
+  font-size: 1rem;
+  font-weight: bold;
+  color: yellow;
+  margin-bottom: 10px;
+}
+
+#start-btn, #restart-btn, #submit-answer-btn {
+    background-color: #f7df1e;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 200px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#start-btn:hover, #restart-btn:hover, #submit-answer-btn:hover {
+    background-color: #e6cc00;
+    cursor: pointer;
+}
+
+.answers {
+    display: none;
+}
+
+.answer {
+    background-color: #1e1e1e;
+    color: white;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 15px;
+}
+
+.answer:hover {
+    background-color: #333;
+    cursor: pointer;
+}
+
+#text-answer {
+  display: none;
+  background-color: black;
+  color: white;
+  border: 2px solid yellow;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+#submit-answer-btn {
+  display: none;
+}
+
+.correct {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.incorrect {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+#feedback {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}   
